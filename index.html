@@ -41,10 +41,10 @@ a{color:var(--red)}
 /* ---------- HEADER ---------- */
 .hdr{position:relative;background:var(--olive);border-bottom:3px solid var(--gold);padding:16px 24px;text-align:center;overflow:hidden}
 .hdr:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(0,0,0,.05) 0 12px,transparent 12px 24px);pointer-events:none}
-.hdr-title{font-family:var(--ff-d);font-size:34px;letter-spacing:.14em;color:#f3ecd8;text-transform:uppercase;font-weight:700;line-height:1;position:relative;text-shadow:2px 2px 0 rgba(0,0,0,.35);pointer-events:none}
+.hdr-title{font-family:var(--ff-d);font-size:34px;letter-spacing:.14em;color:#f3ecd8;text-transform:uppercase;font-weight:700;line-height:1;position:relative;text-shadow:2px 2px 0 rgba(0,0,0,.35)}
 .hdr-title b{color:var(--gold-hi)}
-.hdr-sub{font-family:var(--ff-m);font-size:12px;letter-spacing:.3em;color:var(--gold-hi);text-transform:uppercase;margin-top:7px;position:relative;pointer-events:none}
-.theme-toggle{position:absolute;left:18px;top:50%;transform:translateY(-50%);display:inline-flex;border:1px solid var(--gold);border-radius:20px;overflow:hidden;background:rgba(0,0,0,.2);z-index:2}
+.hdr-sub{font-family:var(--ff-m);font-size:12px;letter-spacing:.3em;color:var(--gold-hi);text-transform:uppercase;margin-top:7px;position:relative}
+.theme-toggle{position:absolute;left:18px;top:50%;transform:translateY(-50%);display:inline-flex;border:1px solid var(--gold);border-radius:20px;overflow:hidden;background:rgba(0,0,0,.2)}
 .tt-btn{background:transparent;border:none;color:#d8cfb2;font-family:var(--ff-m);font-size:12px;letter-spacing:.06em;padding:7px 13px;cursor:pointer;transition:all var(--tr);text-transform:uppercase}
 .tt-btn.active{background:var(--gold);color:#20180a;font-weight:bold}
 .hdr-rand{position:absolute;right:18px;top:50%;transform:translateY(-50%);background:var(--red);border:none;border-radius:var(--r);color:#fff;font-family:var(--ff-m);font-size:12px;letter-spacing:.1em;padding:9px 14px;cursor:pointer;transition:all var(--tr);text-transform:uppercase;font-weight:bold}
@@ -4394,7 +4394,7 @@ function renderDescriptor(){
   var h='<div class="step-intro"><div class="step-h">Step Five <span>&middot;</span> Descriptor</div>'+
     '<div class="step-p">Finish with a name and a one-line descriptor: <i>&ldquo;A[n] [age] [trait] [species] [career] who [hook].&rdquo;</i></div></div>';
   h+='<div class="panel"><div class="panel-body">'+
-    '<label class="lbl">Name <button class="roll-btn" style="float:right;margin-top:-4px" onclick="randName()">&#9860;</button></label>'+
+    '<label class="lbl">Name <button class="roll-btn" style="float:right;margin-top:-4px" onclick="randName()">&#9860; Randomize</button></label>'+
     '<input class="txt" style="font-family:var(--ff-d);font-size:20px" placeholder="Judge Dredd" value="'+esc(S.name)+'" oninput="S.name=this.value;refreshNav()">'+
     '<label class="lbl">Hook (who they are / what drives them)</label>'+
     '<input class="txt" placeholder="who always gets his man" value="'+esc(S.hook)+'" oninput="S.hook=this.value">'+
