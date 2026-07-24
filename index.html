@@ -3932,6 +3932,11 @@ var TYPE_LABEL = {
   'judge-origin':'Judge Origin','academy-course':'Academy of Law Programs','judge-career':'Judge Careers',
   'speciality-judge':'Speciality Judge Careers'
 };
+// Mega-City One citizen name pools (Xero's 1000-name list, split into 96 unique
+// first + 96 unique last names). Random builds mix a first + last independently.
+var MC1_FIRST = ["Ben", "Bill", "Bling", "Blitz", "Blunt", "Bob", "Bolt", "Boor", "Breaker", "Byte", "Chrome", "Chug", "Churl", "Cipher", "Clown", "Cretin", "Dan", "Dandy", "Dash", "Dim", "Dull", "Echo", "Fancy", "Fast", "Fay", "Filth", "Flash", "Fleet", "Flick", "Flink", "Fool", "Fred", "Garn", "Gizmo", "Glitch", "Grit", "Gutter", "Guy", "Haste", "Idiot", "Jax", "Jaxson", "Jay", "Jester", "Jim", "Joe", "Kay", "Link", "Lout", "Max", "May", "Mordo", "Moron", "Ned", "Neon", "Nova", "Pax", "Posh", "Quick", "Rapid", "Ray", "Rex", "Roxie", "Roy", "Rush", "Rust", "Rusty", "Sam", "Sewer", "Sharp", "Skizz", "Skunk", "Slag", "Slayter", "Slick", "Slime", "Sludge", "Snob", "Speed", "Sprog", "Spud", "Sump", "Swift", "Ted", "Tex", "Tom", "Toxic", "Trix", "Vector", "Volt", "Vorn", "Wulf", "Zack", "Zek", "Zeta", "Zylar"];
+var MC1_LAST = ["-6", "-99", "-X", "Armor", "Axe", "Badge", "Blade", "Bling", "Block", "Blunt", "Bolt", "Breaker", "Byte", "Cable", "Chrome", "Chug", "Cipher", "Club", "Cord", "Crest", "Dagger", "Dash", "Dim", "Disease", "Echo", "Fats", "Fetid", "Filth", "Flail", "Flash", "Flick", "Flink", "Fool", "Garn", "Gizmo", "Glitch", "Hammer", "Illness", "Jax", "Juice", "Knife", "Lash", "Link", "Mace", "Mark", "Mega", "Mordo", "Neon", "Nova", "Pax", "Plague", "Pretty", "Putrid", "Rad", "Rancid", "Rope", "Rotten", "Roxie", "Rush", "Rusty", "Sewer", "Sharp", "Shield", "Sign", "Skinny", "Skizz", "Skunk", "Slayter", "Slick", "Slime", "Smelly", "Snob", "Spear", "Speed", "Spoiled", "Spud", "Stinker", "Sump", "Symbol", "Symptom", "Tainted", "Tex", "Toxic", "Trix", "Ugly", "Vandals", "Vector", "Volt", "Vorn", "Weapon", "Whip", "Wire", "Wulf", "Zack", "Zit", "Zylar"];
+function mc1Name(){ return pick(MC1_FIRST)+' '+pick(MC1_LAST); }
 
 // ---------- generic helpers ----------
 function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
@@ -4409,7 +4414,7 @@ function descriptorLine(){
   parts=parts.replace(/\s+/g,' ').trim();
   return (S.name||'This character')+' is '+parts+(S.hook?' who '+S.hook:'')+'.';
 }
-function randName(){ S.name=pick(['Dredd','Anderson','Hershey','Giant','DeMarco','Kraken','Rico','Cassidy','Beeny','Sanchez','Volt','Krono','Maitland','Guthrie'])+' '+pick(['','','Joe ','Cassandra ','','']).trim(); if(!S.name)S.name='Judge Dredd'; refreshNav(); var el=document.querySelector('.txt'); if(el)el.value=S.name; }
+function randName(){ S.name=mc1Name(); refreshNav(); var el=document.querySelector('.txt'); if(el)el.value=S.name; }
 function refreshNav(){ var n=document.querySelector('.nav-row'); if(n)n.outerHTML=nav(); renderTrack(); var pd=document.querySelector('.picked-desc'); if(pd)pd.textContent=descriptorLine(); }
 
 // ---------- STEP 5: SHEET ----------
@@ -4534,8 +4539,8 @@ function randomiseAll(){
   // trait
   var ch=buildCharacter(); var ranked=ATTR_KEYS.slice().sort(function(a,b){return ch.attrs[b]-ch.attrs[a];});
   S.traitFrom='highest'; S.traitAttr=ranked[0]; var opts=traitOptions(S.traitAttr,'highest'); if(opts.length)S.trait=pick(opts);
-  S.name=pick(['Dredd','Anderson','Hershey','Giant','Rico','DeMarco','Kraken','Volt'])+' '+pick(['','Joe','Cass','','']);
-  S.name=S.name.trim(); S.hook=pick(['always gets their man','trusts no one','plays by their own rules','never forgets a face','has a score to settle']);
+  S.name=mc1Name();
+  S.hook=pick(['always gets their man','trusts no one','plays by their own rules','never forgets a face','has a score to settle']);
   S.step=STEPS.length-1; render(); window.scrollTo(0,0);
 }
 
