@@ -41,13 +41,13 @@ a{color:var(--red)}
 /* ---------- HEADER ---------- */
 .hdr{position:relative;background:var(--olive);border-bottom:3px solid var(--gold);padding:16px 24px;text-align:center;overflow:hidden}
 .hdr:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(0,0,0,.05) 0 12px,transparent 12px 24px);pointer-events:none}
-.hdr-title{font-family:var(--ff-d);font-size:34px;letter-spacing:.14em;color:#f3ecd8;text-transform:uppercase;font-weight:700;line-height:1;position:relative;text-shadow:2px 2px 0 rgba(0,0,0,.35)}
+.hdr-title{font-family:var(--ff-d);font-size:34px;letter-spacing:.14em;color:#f3ecd8;text-transform:uppercase;font-weight:700;line-height:1;position:relative;text-shadow:2px 2px 0 rgba(0,0,0,.35);pointer-events:none}
 .hdr-title b{color:var(--gold-hi)}
-.hdr-sub{font-family:var(--ff-m);font-size:12px;letter-spacing:.3em;color:var(--gold-hi);text-transform:uppercase;margin-top:7px;position:relative}
-.theme-toggle{position:absolute;left:18px;top:50%;transform:translateY(-50%);display:inline-flex;border:1px solid var(--gold);border-radius:20px;overflow:hidden;background:rgba(0,0,0,.2)}
+.hdr-sub{font-family:var(--ff-m);font-size:12px;letter-spacing:.3em;color:var(--gold-hi);text-transform:uppercase;margin-top:7px;position:relative;pointer-events:none}
+.theme-toggle{position:absolute;left:18px;top:50%;transform:translateY(-50%);display:inline-flex;border:1px solid var(--gold);border-radius:20px;overflow:hidden;background:rgba(0,0,0,.2);z-index:5}
 .tt-btn{background:transparent;border:none;color:#d8cfb2;font-family:var(--ff-m);font-size:12px;letter-spacing:.06em;padding:7px 13px;cursor:pointer;transition:all var(--tr);text-transform:uppercase}
 .tt-btn.active{background:var(--gold);color:#20180a;font-weight:bold}
-.hdr-rand{position:absolute;right:18px;top:50%;transform:translateY(-50%);background:var(--red);border:none;border-radius:var(--r);color:#fff;font-family:var(--ff-m);font-size:12px;letter-spacing:.1em;padding:9px 14px;cursor:pointer;transition:all var(--tr);text-transform:uppercase;font-weight:bold}
+.hdr-rand{position:absolute;right:18px;top:50%;transform:translateY(-50%);background:var(--red);border:none;border-radius:var(--r);color:#fff;font-family:var(--ff-m);font-size:12px;letter-spacing:.1em;padding:9px 14px;cursor:pointer;transition:all var(--tr);text-transform:uppercase;font-weight:bold;z-index:5}
 .hdr-rand:hover{background:var(--red-dim)}
 @media(max-width:720px){.theme-toggle,.hdr-rand{position:static;transform:none;display:inline-flex;margin:12px 6px 0}.hdr-title{font-size:26px}}
 
